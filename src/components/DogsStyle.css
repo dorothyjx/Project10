@@ -18,24 +18,10 @@ h2 {
 	font-size: 1.8rem;
 }
 
-input {
-	height: 40px;
-	width: 160px;
-}
-
-.btn-wrap {
-	width: 70%;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-}
-
-.btn-wrap > button {
+.dropdown {
+	width: 300px;
 	height: 60px;
-	width: 60px;
-	font-size: 1.5rem;
-	font-weight: 600;
-	margin: 1rem;
+	font-size: 1.4rem;
 }
 
 .image {
@@ -47,13 +33,16 @@ input {
 	.container {
 		width: 70vw;
 	}
-	.btn-wrap {
-		width: 80%;
-	}
 	.image {
 		transform: scale(0.5, 0.5);
 	}
 	h2 {
-		font-size: 1.2rem;
+		font-size: 1.4rem;
+	}
+
+	.dropdown{
+		width: 250px;
+		height: 50px;
+		font-size: 1rem;
 	}
 }

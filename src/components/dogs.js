@@ -1,13 +1,11 @@
 import react, {useState, useEffect} from "react"
-//import Dropdown from 'react-bootstrap/Dropdown'
 import "./DogsStyle.css"
 
 const Dogs = () => {
-	const [breeds, setBreeds] = useState()
+	const [breeds, setBreeds] = useState([])  //all breeds
 	const [image, setImage] = useState("")
 
-	const [breed, setBreed] = useState("affenpinscher")
-	//const [dogNum, setDogNum] = useState(0)
+	const [breed, setBreed] = useState("affenpinscher")  //selected breed
 
 	const allbreeds = []
 
@@ -30,34 +28,29 @@ const Dogs = () => {
 		setBreeds(allbreeds)
 	}
 
-	//console.log(breeds)
-
 	const getDogImg = async(dog) => {
-		console.log(dog)
 		const imageResponse = await fetch(`https://dog.ceo/api/breed/${dog}/images/random`)
 		const imageResult = await imageResponse.json()
 		setImage(imageResult.message)
 	}
 
-	useEffect(() => {
-		fetchBreeds,
-		getDogImg
-	}, [])
-
-
-
-	const handleChange =(event) => {
-		setBreed(event.target.value)
-		console.log("change:" + breed)
-		getDogImg(breed)
+	const handleChange = (dog) => {
+		setBreed(dog)
+		getDogImg(dog)
 	}
+
+	useEffect(() => {
+		getDogImg(breed)
+	}, [breed])
+
+	fetchBreeds()
 
 	return <>
 		<div className="container">
 			<h1> Find A Dog </h1>
 
-			<form onChange={(event) => handleChange(event)}>
-				<select>
+			<form onChange={(event) => handleChange(event.target.value)}>
+				<select className="dropdown">
 					{
 						breeds?.map((b, index) => {
 							return <option value={b} key={index}>{b}</option>
