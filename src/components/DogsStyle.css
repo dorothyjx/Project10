@@ -7,7 +7,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid gold;
 }
 
 h1 {
@@ -41,7 +40,7 @@ input {
 
 .image {
 	width: auto;
-	height: 500px;
+	height: 450px;
 }
 
 @media screen and (max-width: 900px) {
